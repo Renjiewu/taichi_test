@@ -95,9 +95,9 @@ def main():
     drag_damping[None] = 1
     dashpot_damping[None] = 100
 
-    add_particle(0.3, 0.3, False)
-    add_particle(0.3, 0.4, False)
-    add_particle(0.4, 0.4, False)
+    # add_particle(0.3, 0.3, True)
+    # add_particle(0.3, 0.4, False)
+    # add_particle(0.4, 0.4, False)
 
     while True:
         for e in gui.get_events(ti.GUI.PRESS):
