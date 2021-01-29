@@ -74,7 +74,7 @@ def add_particle(pos_x: ti.f32, pos_y: ti.f32, fixed_: ti.i32):
     fixed[new_particle_id] = fixed_
 
     for i in range(num_particles[None]):
-        if (x[new_particle_id] - x[i]).norm() < 0.1:
+        if (x[new_particle_id] - x[i]).norm() < 0.2:
             rest_length[new_particle_id, i] = (x[new_particle_id] - x[i]).norm()
             rest_length[i, new_particle_id] = (x[new_particle_id] - x[i]).norm()
 
