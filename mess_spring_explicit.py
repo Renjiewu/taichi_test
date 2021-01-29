@@ -74,9 +74,9 @@ def add_particle(pos_x: ti.f32, pos_y: ti.f32, fixed_: ti.i32):
     fixed[new_particle_id] = fixed_
 
     for i in range(num_particles[None]):
-        if (x[new_particle_id] - x[i]).norm() < 0.15:
-            rest_length[new_particle_id, i] = 0.1
-            rest_length[i, new_particle_id] = 0.1
+        if (x[new_particle_id] - x[i]).norm() < 0.1:
+            rest_length[new_particle_id, i] = (x[new_particle_id] - x[i]).norm()
+            rest_length[i, new_particle_id] = (x[new_particle_id] - x[i]).norm()
 
     num_particles[None] += 1
 
@@ -89,7 +89,7 @@ def attract(pos_x: ti.f32, pos_y: ti.f32):
 
 
 def main():
-    gui = ti.GUI('Explicit Mass Spring System', background_color=0xDDDDDD)
+    gui = ti.GUI('Explicit Mass Spring System', background_color=0xDDDDDD, res=512)
 
     spring_Y[None] = 1000
     drag_damping[None] = 1
